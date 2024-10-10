@@ -8,7 +8,14 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const navLinks = ['Home', 'About', 'Projects', 'Contact', 'Tech Stack'];
- 
+  const socialLinks = ['GitHubIcon', 'XIcon', 'LinkedInIcon'];
+  const [socialLinksIndex, setSocialLinksIndex] = useState(null);
+
+  const icons = {
+    GitHubIcon: GitHubIcon,
+    XIcon: XIcon,
+    LinkedInIcon: LinkedInIcon
+  }
   
   return (
     <div className='w-full'>
@@ -28,41 +35,26 @@ const Navbar = () => {
           className='cursor-pointer'
           style={{color: hoveredIndex === index ?  'rgba(0, 192, 253, 0.8)' : 'white',
             textShadow: hoveredIndex === index ?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
-            background: hoveredIndex === index?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none'}}
+            background: hoveredIndex === index?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
+            
+          }}
           onMouseEnter={()=> setHoveredIndex(index)}
           onMouseLeave={()=> setHoveredIndex(null)}>{item}</li>
         ))}
-        {/* <li style={{color: isHovered ?  'rgba(0, 192, 253, 0.8)' : 'white',
-                    textShadow: isHovered ?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
-                    background: isHovered ?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none'
-        }}
-        onMouseEnter={()=> setIsHovered(true)}
-        onMouseLeave={()=> setIsHovered(false)}
-         >
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-        <li>
-          <Link to="/projects">Projects</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
-          </li>
-          <li>
-          <Link to="/tech-stack">Tech Stack</Link>
-          </li> */}
+       
           <li className='flex gap-4 '>
-          <Link>
-          <GitHubIcon />
-          </Link>
-          <Link>
-          <XIcon />
-          </Link>
-          <Link>
-          <LinkedInIcon />
-          </Link>
+            {socialLinks.map((items, index)=>{
+              const IconComponent = icons[items];
+              return (
+                <Link key={index}   style={{color: socialLinksIndex === index ?  'rgba(0, 192, 253, 0.8)' : 'white',
+                  textShadow: socialLinksIndex === index ?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
+                  background: socialLinksIndex === index?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none'}}
+                onMouseEnter={()=> setSocialLinksIndex(index)}
+                onMouseLeave={()=> setSocialLinksIndex(null)}>
+                <li><IconComponent/></li>
+                </Link>
+              )
+            })}
         </li>
       </ul>
       <div className='md:hidden flex'>

@@ -71,7 +71,7 @@ const Hero = () => {
         </div>
         <div className='w-[50%] items-center flex justify-center  z-10 '>{/* image */}
             <div
-            className='transition-all duration-1000'
+            className='transition-all duration-1000 cursor-pointer'
             style={{
                 boxShadow: '0 0 20px 10px rgba(0, 192, 253, 0.8)',
                 animation: 'pulseGlow 2s infinite alternate',
