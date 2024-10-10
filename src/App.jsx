@@ -6,11 +6,13 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import ParticlesBackground from './components/ParticlesBackground';
 
 const App = () => {
   return (
     <Router>
       <div className="App bg-black text-white">
+       <ParticlesBackground /> 
         {/* Navbar is visible on all routes */}
         <Navbar />
         <Routes>

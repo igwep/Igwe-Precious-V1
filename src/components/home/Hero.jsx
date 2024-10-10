@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import CircleIcon from '@mui/icons-material/Circle';
+import { green } from '@mui/material/colors';
+
+
 
 const Hero = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const sentences = [
     "I design and develop websites that bring ideas to life.",
-    "want to collab?"
+    "Turning complex problems into elegant, user-friendly digital solutions.",
+    "A web developer passionate about crafting responsive, intuitive, and dynamic websites."
   ]
   const [text, setText] = useState('');
   const [sentenceIndex, setSentenceIndex] = useState(0);
@@ -43,39 +51,41 @@ const Hero = () => {
             fontWeight: 'bold'
           }} */
   return (
-    <div className='md:mx-20 md:my-16 items-center md:flex-row flex-col-reverse flex justify-between '>
+    <div className='md:mx-20 md:my-16 h-[60vh] items-center md:flex-row flex-col-reverse flex justify-between z-10 '>
         <div className='  md:w-[70%] w-full '>{/* text */}
-          <p style={{
-            background: 'linear-gradient(to right, #00C0FD, #E70FAA)',
+          <p >Hello World, I'm</p>
+        <p className='text-5xl font-bold' style={{
+             background: ' #00C0FD',
             WebkitBackgroundClip: 'text',
             color: 'transparent',
-             textShadow: '0 0 10px #00C0FD'
+            textShadow: '0 0 10px rgba(0, 192, 253, 0.8)'
             
-          }}>Hello World, I'm</p>
-        <p className='text-5xl font-bold'  >Igwe Precious</p>
-        <p className='mb-4 mt-4 text-white ' style={{
-            background: 'linear-gradient(to right, #00C0FD, #E70FAA)',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-             textShadow: '0 0 10px #00C0FD'
-            
-          }}>Web Developer | React | Firebase | Node.js</p>
+          }}  >IGWE PRECIOUS</p>
+       {/*  <p className='mb-4 mt-4 text-white ' >Web Developer | React | Firebase | Node.js</p> */}
+       <p className='mb-4 mt-4 text-white min-h-8' >{text}<span className='blinking-cursor'>|</span></p>
         <p className='text-white'>
         I build responsive, dynamic applications using modern technologies. Specializing in front-end development, I create intuitive user interfaces, integrate APIs, and optimize performance. From crypto dashboards to secure admin panels, I bring ideas to life through scalable, maintainable solutions.
         </p>
+          <div className='mt-4 flex items-center'><span><LocationOnIcon /></span><span>Nigeria, Lagos</span></div>
+          <div className='mt-4 ml-2 flex items-center gap-1'><span><CircleIcon style={{ color: green[700], fontSize: 8 }} /></span><span>Available for new projects</span></div>
         </div>
-        <div className='w-[50%] items-center flex justify-center '>{/* image */}
+        <div className='w-[50%] items-center flex justify-center  z-10 '>{/* image */}
             <div
+            className='transition-all duration-1000'
             style={{
                 boxShadow: '0 0 20px 10px rgba(0, 192, 253, 0.8)',
+                animation: 'pulseGlow 2s infinite alternate',
                 background: 'rgba(0, 192, 253, 0.8)',
                 borderRadius: '50%', /* Make sure the border is rounded like the image */
                 padding: '8px', /* This will act as the border width */
                 width: 'fit-content',
+               transform: isHovered ? 'scale(1.05, 1.05)' : 'none'
               }}
+              onMouseEnter={()=> setIsHovered(true)}
+              onMouseLeave={()=> setIsHovered(false)}
             >
 
-            <img className='w-80 rounded-full rotate-12  ' src="/assets/images/me.PNG" alt="" />
+            <img className='w-96 rounded-full rotate-12  ' src="/assets/images/me.PNG" alt="" />
             </div>
         </div>
     </div>

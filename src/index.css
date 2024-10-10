@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.blinking-cursor {
+    font-weight: bold;
+    font-size: 1.5em;
+    animation: blink 0.5s step-start infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes pulseGlow {
+    0% {
+      box-shadow: 0 0 20px #00C0FD;
+    }
+    100% {
+      box-shadow: 0 0 40px #00C0FD;
+    }
+  }
