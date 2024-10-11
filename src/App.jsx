@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -9,13 +9,14 @@ import Footer from './components/Footer';
 import ParticlesBackground from './components/ParticlesBackground';
 
 const App = () => {
+  const [menuToggle, setMenuToggle] = useState(false)
   return (
     <Router>
       <div className="App bg-black text-white">
        <ParticlesBackground /> 
         {/* Navbar is visible on all routes */}
         <div className='z-40 relative'>
-        <Navbar />
+        <Navbar menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
         </div>
         <Routes>
           {/* Home Route */}
@@ -33,7 +34,8 @@ const App = () => {
         {/* Footer is visible on all routes */}
         
       </div>
-      <div className='z-40 relative'>
+      <div className={menuToggle ? 'hidden' : 'z-40 relative'}
+      >
         <Footer />
         </div>
     </Router>

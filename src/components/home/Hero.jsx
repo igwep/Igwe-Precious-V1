@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import CircleIcon from '@mui/icons-material/Circle';
-import { green } from '@mui/material/colors';
+
 
 
 
@@ -11,7 +9,7 @@ const Hero = () => {
   const sentences = [
     "Front-End Developer",
     "FreeLancer",
-    " Web Developer"
+    " React Developer"
   ]
   const [text, setText] = useState('');
   const [sentenceIndex, setSentenceIndex] = useState(0);
@@ -42,25 +40,11 @@ const Hero = () => {
     }
   }, [charIndex, sentenceIndex, sentences]);
 
-
-/* style={{
-            background: 'linear-gradient(to right, #00C0FD, #E70FAA)',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            fontSize: '2rem',
-            fontWeight: 'bold'
-          }} */
   return (
-    <div className='px-8 py-4 md:px-20 md:py-16 md:h-[70vh] items-center md:flex-row flex-col-reverse gap-16 md:gap-0 flex justify-between z-10 '>
+    <div className='px-8 py-4 md:px-20 md:py-16 md:h-[70vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-16 md:gap-0 flex justify-between z-10 '>
         <div className='  md:w-[70%] w-full '>{/* text */}
           <p >Hello World, I'm</p>
-        <p className='md:text-5xl text-3xl font-bold' /* style={{
-             background: ' #00C0FD',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            textShadow: '0 0 10px rgba(0, 192, 253, 0.8)'
-            
-          }}  */ >IGWE PRECIOUS</p>
+        <p className='md:text-5xl text-3xl font-bold' >IGWE PRECIOUS</p>
        {/*  <p className='mb-4 mt-4 text-white ' >Web Developer | React | Firebase | Node.js</p> */}
        <p className='mb-4 mt-4 text-white md:text-3xl text-xl md:min-h-8' >And I'm a <span className='font-semibold' style={{
              background: ' #00C0FD',
