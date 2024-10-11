@@ -7,7 +7,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const navLinks = ['Home', 'About', 'Projects', 'Contact', 'Tech Stack'];
+  const navLinks = [
+    {linkName:'Home',
+       routes:'/'
+      },
+      {linkName:'About',
+        routes:'/about'
+       },
+       {linkName:'Projects',
+        routes:'/projects'
+       },
+       {linkName:'Contact',
+        routes:'/contact'
+       },
+       {linkName:'Tech stack',
+        routes:'/tech-stack'
+       }
+  ]
   const socialLinks = ['GitHubIcon', 'XIcon', 'LinkedInIcon'];
   const [socialLinksIndex, setSocialLinksIndex] = useState(null);
 
@@ -19,7 +35,7 @@ const Navbar = () => {
   
   return (
     <div className='w-full'>
-      <nav className='flex justify-between md:px-16 md:py-4 xl:px-20 xl:py-8  '>
+      <nav className='flex justify-between px-4 py-4 md:px-16 md:py-4 xl:px-20 xl:py-8  '>
       <div>
         <p className=' font-bold text-xl' style={{
             background: ' #00C0FD',
@@ -27,11 +43,12 @@ const Navbar = () => {
             color: 'transparent',
             textShadow: '0 0 10px rgba(0, 192, 253, 0.8)'
             
-          }}>&lt;Precious /&gt;</p>
+          }}>&lt;Igwe <span className='text-white'>Precious</span> /&gt;</p>
       </div>
       <ul className='md:flex gap-16 font-semibold   hidden  '>
-        {navLinks.map((item, index) =>(
-          <li key={index} 
+        {navLinks.map((item, index) =>{
+          return (
+          <Link key={index} to={item.routes}
           className='cursor-pointer'
           style={{color: hoveredIndex === index ?  'rgba(0, 192, 253, 0.8)' : 'white',
             textShadow: hoveredIndex === index ?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
@@ -39,8 +56,9 @@ const Navbar = () => {
             
           }}
           onMouseEnter={()=> setHoveredIndex(index)}
-          onMouseLeave={()=> setHoveredIndex(null)}>{item}</li>
-        ))}
+          onMouseLeave={()=> setHoveredIndex(null)}>{item.linkName}</Link>
+        )
+        })}
        
           <li className='flex gap-4 '>
             {socialLinks.map((items, index)=>{

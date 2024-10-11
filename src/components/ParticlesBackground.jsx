@@ -6,7 +6,7 @@ const ParticlesBackground = () => {
     const canvasNest = new CanvasNest(document.getElementById('canvasContainer'), {
       color: '255, 255, 255', // White color for visibility
       opacity: 3,           // Adjust opacity
-      count: 400,             // Increase the number of particles
+      count: 200,             // Increase the number of particles
       zIndex: 1,              // Ensure particles are below other content
     });
 
@@ -16,14 +16,14 @@ const ParticlesBackground = () => {
   }, []);
 
   return (
-    <div 
+    <div  className='md:h-[80vh] h-[100vh]'
       id="canvasContainer" 
       style={{ 
         position: 'absolute', 
         top: 0, 
         left: 0, 
         width: '100%', 
-        height: '100%', 
+         
         zIndex: 1,
         pointerEvents: 'none'
       }} 

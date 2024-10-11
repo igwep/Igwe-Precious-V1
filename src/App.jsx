@@ -14,7 +14,9 @@ const App = () => {
       <div className="App bg-black text-white">
        <ParticlesBackground /> 
         {/* Navbar is visible on all routes */}
+        <div className='z-40 relative'>
         <Navbar />
+        </div>
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />
@@ -29,8 +31,11 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         {/* Footer is visible on all routes */}
-        <Footer />
+        
       </div>
+      <div className='z-40 relative'>
+        <Footer />
+        </div>
     </Router>
   );
 }
