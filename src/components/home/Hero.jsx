@@ -60,7 +60,7 @@ const Hero = () => {
           <div className='mt-4 ml-2 flex items-center gap-1'><span><CircleIcon style={{ color: green[700], fontSize: 8 }} /></span><span>Available for new projects</span></div>
           */}
 <button
-  className="px-4 py-2 rounded-3xl text-black font-bold mt-4"
+  className="px-4 py-2 rounded-3xl text-black font-bold mt-4 z-50"
   style={{
     background: 'rgb(0, 192, 253)',
     boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect

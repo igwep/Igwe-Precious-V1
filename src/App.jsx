@@ -7,11 +7,13 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import ParticlesBackground from './components/ParticlesBackground';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   const [menuToggle, setMenuToggle] = useState(false)
   return (
     <Router>
+      <ScrollToTop>
       <div className="App bg-black text-white">
        <ParticlesBackground /> 
         {/* Navbar is visible on all routes */}
@@ -34,10 +36,11 @@ const App = () => {
         {/* Footer is visible on all routes */}
         
       </div>
-      <div className={menuToggle ? 'hidden' : 'z-40 relative'}
+      <div className={menuToggle ? 'relative' : 'z-10 relative'}
       >
         <Footer />
         </div>
+      </ScrollToTop>
     </Router>
   );
 }

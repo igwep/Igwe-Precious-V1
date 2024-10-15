@@ -21,3 +21,30 @@
       box-shadow: 0 0 40px #00C0FD;
     }
   }
+  .twinkling-stars {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    z-index: 0;
+  }
+  
+  .twinkling-stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+    animation: twinkling 10s linear infinite;
+    opacity: 0.6; 
+  }
+  
+  @keyframes twinkling {
+    0% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-10%); opacity: 0.8; }
+    100% { transform: translateY(0); opacity: 0.6; }
+  }
+  

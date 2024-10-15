@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import XIcon from '@mui/icons-material/X';
@@ -9,6 +9,30 @@ import CloseIcon from '@mui/icons-material/Close'; // Import the Close icon
 
 const Navbar = ({menuToggle, setMenuToggle}) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [stickyNavbar, setStickyNavbar] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  
+  const handleScroll = () => {
+    const position =window.pageYOffset || document.documentElement.scrollTop;
+    setScrollPosition(position);
+    
+  };
+  useEffect(()=>{
+    window.addEventListener('scroll', handleScroll);
+    if(scrollPosition > 60){
+      setStickyNavbar(true);
+    
+    }
+    else{
+      setStickyNavbar(false);
+      
+    }
+
+    return ()=>{
+      window.removeEventListener('scroll', handleScroll);
+    }
+  },[menuToggle, scrollPosition, stickyNavbar])
+
  
   const navLinks = [
     {linkName:'Home',
@@ -35,10 +59,10 @@ const Navbar = ({menuToggle, setMenuToggle}) => {
     XIcon: XIcon,
     LinkedInIcon: LinkedInIcon
   }
-  
+  /* {`${stickyNavbar ? 'fixed top-0 left-0 h-auto  w-full  bg-transparent backdrop-blur-sm' : 'w-full'} ${menuToggle ? 'fixed top-0 left-0   w-full  bg-transparent backdrop-blur-sm h-[100%]' : 'w-full'}`} */
   return (
-    <div className='w-full'>
-      <nav className='flex justify-between px-4 py-4 md:px-16 md:py-4 xl:px-20 xl:py-8  '>
+    <div className={`${stickyNavbar ? 'fixed top-0 left-0   w-full  bg-transparent backdrop-blur-sm h-auto overflow-hidden' : 'w-full'} ${menuToggle && stickyNavbar ? ' fixed top-0 bottom-0   h-[100vh] w-full' : 'w-full  '}  ${!menuToggle && stickyNavbar ? '' :  'h-[100vh]' }}`}>
+      <nav className='flex justify-between px-4 py-4 md:px-16 md:py-4 xl:px-20 xl:py-8 h-auto  '>
       <div>
         <p className=' font-bold md:text-xl text-2xl' style={{
             background: ' #00C0FD',
@@ -82,8 +106,9 @@ const Navbar = ({menuToggle, setMenuToggle}) => {
         <MenuIcon sx={{fontSize: 35}} />
       </button>
       {/* mobile nav */}
-      <div className={menuToggle ? 'flex' : 'hidden'}>
-  <div className=' fixed top-0 left-0   w-full h-[100%]' style={{
+      {/* {menuToggle ? 'flex' : 'hidden'} */}
+      
+  <div className={`${menuToggle ? 'translate-x-0' : 'translate-x-full'} fixed top-0 left-0 flex flex-col  transition-transform duration-300 w-full h-full`} style={{
     backgroundColor: '#222'
   }}>
     <div className='flex justify-between items-center w-full px-4 py-4 border-b border-white'>
@@ -110,6 +135,7 @@ const Navbar = ({menuToggle, setMenuToggle}) => {
                 background: hoveredIndex === index?  '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
                 
               }}
+              onClick={()=> setMenuToggle(false)}
               onMouseEnter={()=> setHoveredIndex(index)}
               onMouseLeave={()=> setHoveredIndex(null)}
               
@@ -143,7 +169,7 @@ const Navbar = ({menuToggle, setMenuToggle}) => {
       </div>
 </div>
 
-      </div>
+    
     </nav>
     </div>
   );
