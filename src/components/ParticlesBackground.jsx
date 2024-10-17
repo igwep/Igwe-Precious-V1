@@ -16,7 +16,7 @@ const ParticlesBackground = () => {
   }, []);
 
   return (
-    <div  className='md:h-[80vh] h-[85vh]'
+    <div  className='md:h-[100%] h-[90vh]'
       id="canvasContainer" 
       style={{ 
         position: 'absolute', 

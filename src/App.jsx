@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
-import Projects from './pages/Projects';
+import ProjectsSection from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-import ParticlesBackground from './components/ParticlesBackground';
+import TechStack from './pages/TechStack';
 import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
     <Router>
       <ScrollToTop>
       <div className="App bg-black text-white">
-       <ParticlesBackground /> 
+       {/* <ParticlesBackground /> */} 
         {/* Navbar is visible on all routes */}
         <div className='z-40 relative'>
         <Navbar menuToggle={menuToggle} setMenuToggle={setMenuToggle} />
@@ -28,10 +28,11 @@ const App = () => {
           <Route path="/about" element={<About />} />
           
           {/* Projects Route */}
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects" element={<ProjectsSection />} />
           
           {/* Contact Route */}
           <Route path="/contact" element={<Contact />} />
+          <Route path="/tech-stack" element={<TechStack />} />
         </Routes>
         {/* Footer is visible on all routes */}
         

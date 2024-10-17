@@ -1,86 +1,174 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import CanvasNest from 'canvas-nest.js';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+const ParticlesBackground = () => {
+  useEffect(() => {
+    const canvasNest = new CanvasNest(document.getElementById('canvasContainer'), {
+      color: '255, 255, 255', // White particles for visibility
+      opacity: 3,           // Adjust opacity
+      count: 150,             // Increase the number of particles
+      zIndex: 1,              // Ensure particles are below other content
+    });
+
+    return () => {
+      canvasNest.destroy(); // Cleanup on unmount
+    };
+  }, []);
+
+  return (
+    <div className='md:h-[100%] h-[190vh]'
+      id="canvasContainer" 
+      style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        width: '100%', 
+        zIndex: 1,
+        pointerEvents: 'none'
+      }} 
+    />
+  );
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1, ease: 'easeInOut' }
+  }
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 1, ease: 'easeInOut' }
+  },
+  hover: {
+    scale: 1.1,
+    transition: { duration: 0.3, ease: 'easeInOut' }
+  }
+};
 
 const About = () => {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-center p-8  text-white min-h-screen">
+    <section className="flex flex-col md:flex-row items-center justify-center p-8 text-white min-h-screen">
+  
+      <ParticlesBackground />
+      
       {/* Image Section */}
-      <div className="w-full md:w-1/3 mb-8 md:mb-0 md:mr-8 z-10">
+      <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={imageVariants}
+      className="w-full md:w-1/3 mb-8 md:mb-0 md:mr-8 z-10">
         <img
           src="/assets/images/aboutImage.jpg" // Replace with your image link
           alt="About Me"
           className="w-full h-auto rounded-lg shadow-lg"
         />
-      </div>
+      </motion.div>
 
       {/* About Me Text Section */}
-      <div className="w-full md:w-2/3">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={textVariants}
+        className="w-full md:w-2/3"
+      >
         <h1 className="text-5xl font-bold text-blue-500 mb-4" 
-        style={{
-          background: ' #00C0FD',
-         WebkitBackgroundClip: 'text',
-         color: 'transparent',
-         textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-         
-       }}>About ME</h1>
-        <h3 className="text-2xl font-semibold mb-6 italic" style={{
-             background: ' #00C0FD',
+          style={{
+            background: ' #00C0FD',
             WebkitBackgroundClip: 'text',
             color: 'transparent',
             textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-            
-          }}>Curious about me? Well, here’s my story!</h3>
+          }}>
+          About Me
+        </h1>
+        <h3 className="text-2xl font-semibold mb-6 italic" style={{
+            background: ' #00C0FD',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>
+          Hi there! Let me share a little about my journey and what drives me.
+        </h3>
         
         <p className="text-lg leading-relaxed mb-4">
-          I'm a dedicated full-stack developer with a strong focus on building dynamic and responsive web applications. 
-          Specializing in technologies like <span className="font-semibold">React.js</span> and <span className="font-semibold">Node.js</span>, 
-          I take pride in bridging the technical and visual aspects of a project, bringing ideas to life with clean, efficient, and scalable code.
+          I’m a front-end developer with a passion for creating beautiful, intuitive, and responsive web applications. 
+          I’ve always been fascinated by the way code can bring ideas to life and how technology can shape user experiences.
         </p>
 
         <p className="text-lg leading-relaxed mb-4">
-          My journey in web development began several years ago, and since then, I’ve worked tirelessly to refine my skills in both front-end 
-          and back-end development. I love experimenting with modern frameworks and tools like <span className="font-semibold" style={{
-             background: ' #00C0FD',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-            
-          }}>Next.js</span>, 
-          <span className="font-semibold" style={{
-             background: ' #00C0FD',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-            
-          }}>TypeScript</span>, <span className="font-semibold" style={{
+          My journey began when I earned my degree in Computer Science. It was during my studies that I discovered my love for web development, particularly front-end design. 
+          I thrive on turning creative ideas into interactive websites using technologies like <span className="font-semibold" style={{
             background: ' #00C0FD',
-           WebkitBackgroundClip: 'text',
-           color: 'transparent',
-           textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-           
-         }}>Firebase</span>, and <span className="font-semibold" style={{
-          background: ' #00C0FD',
-         WebkitBackgroundClip: 'text',
-         color: 'transparent',
-         textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-         
-       }}>Tailwind CSS</span>.
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>HTML</span>, <span className="font-semibold" style={{
+            background: ' #00C0FD',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>CSS</span>, <span className="font-semibold" style={{
+            background: ' #00C0FD',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>JavaScript</span>, and <span className="font-semibold" style={{
+            background: ' #00C0FD',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>React.js</span>.
         </p>
 
         <p className="text-lg leading-relaxed mb-4">
-          One of the things I value most is creating exceptional user experiences. Whether it’s crafting pixel-perfect designs, ensuring 
-          mobile responsiveness, or writing performant APIs, I always aim to deliver a product that both users and clients love.
+          I love combining clean design with the latest tech to create smooth and engaging user interfaces. Whether I’m developing a simple landing page or a complex web application, my goal is always the same: to create a seamless and delightful user experience.
         </p>
 
         <p className="text-lg leading-relaxed mb-4">
-          Outside of coding, I’m active on platforms like Twitter and GitHub, where I share insights and ideas. I love connecting with 
-          other developers and startups, and I’m always keeping an eye on the latest trends in the tech world.
+          While I focus on front-end development, I’m also familiar with backend tools and services. 
+          Over the years, I’ve explored different platforms and technologies like <span className="font-semibold" style={{
+            background: ' #00C0FD',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+          }}>Firebase</span> to enhance my projects, particularly when it comes to adding dynamic features like authentication and database management.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-4">
+          Beyond coding, I’m always eager to learn and keep up with the latest trends in web development. I enjoy discovering new tools and techniques that can help me improve my craft. I truly believe that the best web developers are lifelong learners.
+        </p>
+
+        <p className="text-lg leading-relaxed mb-4">
+          In my free time, I like to work on personal projects, experiment with new frameworks, and continuously push myself to grow as a developer. I also love connecting with other professionals in the tech community and sharing knowledge.
         </p>
 
         <p className="text-lg leading-relaxed">
-          Feel free to reach out if you're interested in collaborating or just want to chat about tech! I’m open to freelance opportunities, 
-          and I promise, I don’t bite. 😉
+          If you’re looking for someone who is passionate about web design, loves solving problems, and is always up for a challenge, I’d love to chat! Feel free to reach out – I’m always open to exciting collaborations or just talking tech. 😊
         </p>
-      </div>
+
+        {/* Contact Me Button */}
+        <button 
+        style={{
+          background: 'rgb(0, 192, 253)',
+          boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect
+          transition: 'box-shadow 0.3s ease-in-out', // Smooth transition
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 192, 253, 1)')} // Stronger glow on hover
+        onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 192, 253, 0.8)')} className='px-4 py-2 rounded-3xl text-black font-bold mt-4 z-50'>
+          <Link to="/contact">Contact Me</Link>
+        </button>
+        
+      </motion.div>
     </section>
   );
 };
