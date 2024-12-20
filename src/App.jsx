@@ -37,7 +37,7 @@ const App = () => {
         {/* Footer is visible on all routes */}
         
       </div>
-      <div className={menuToggle ? 'relative' : 'z-10 relative'}
+      <div className={menuToggle ? 'relative bg-black' : 'z-10 relative bg-black'}
       >
         <Footer />
         </div>

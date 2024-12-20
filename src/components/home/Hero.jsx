@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react';
 import ParticlesBackground from '../ParticlesBackground';
 import { motion } from 'framer-motion';
 
-
-
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const sentences = [
     "Front-End Developer",
     "FreeLancer",
-    " React Developer"
-  ]
+    "React Developer"
+  ];
+  
   const [text, setText] = useState('');
   const [sentenceIndex, setSentenceIndex] = useState(0);
-  const [charIndex, setCharIndex] =useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+
   useEffect(() => {
     if (charIndex < sentences[sentenceIndex].length) {
       // Append the next character
@@ -64,72 +64,79 @@ const Hero = () => {
   };
 
   return (
-    <div className='px-8 py-4 md:px-20 md:py-16 md:h-[70vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10 '>
+    <div 
+      // Added top padding to prevent the image from overlapping with the navbar
+      className='px-4 py-4 md:px-20 md:py-16 md:h-[70vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10 pt-20'> 
       <ParticlesBackground />
         <motion.div 
-         className='  md:w-[70%] w-full '
+         className='md:w-[50%] w-full'
          initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={textVariants}>{/* text */}
-          <motion.p >Hello World, I'm</motion.p>
-        <motion.p className='md:text-5xl text-3xl font-bold' >IGWE PRECIOUS</motion.p>
-       {/*  <p className='mb-4 mt-4 text-white ' >Web Developer | React | Firebase | Node.js</p> */}
-       <motion.p className='mb-4 mt-4 text-white md:text-3xl text-xl md:min-h-8' >And I'm a <span className='font-semibold' style={{
-             background: ' #00C0FD',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
-            
-          }}>{text}</span><span className='blinking-cursor'>|</span></motion.p>
-        <motion.p className='text-white text-sm md:text-base' >
-        I build responsive, dynamic applications using modern technologies. Specializing in front-end development, I create intuitive user interfaces, integrate APIs, and optimize performance. From crypto dashboards to secure admin panels, I bring ideas to life through scalable, maintainable solutions.
-        </motion.p>
-         {/*  <div className='mt-4 flex items-center'><span><LocationOnIcon /></span><span>Nigeria, Lagos</span></div>
-          <div className='mt-4 ml-2 flex items-center gap-1'><span><CircleIcon style={{ color: green[700], fontSize: 8 }} /></span><span>Available for new projects</span></div>
-          */}
-<button
-  className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
-  style={{
-    background: 'rgb(0, 192, 253)',
-    boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect
-    transition: 'box-shadow 0.3s ease-in-out', // Smooth transition
-  }}
-  onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 192, 253, 1)')} // Stronger glow on hover
-  onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 192, 253, 0.8)')} // Restore glow after hover
->
-  Download CV
-</button>
+         whileInView="visible"
+         viewport={{ once: true }}
+         variants={textVariants}>
+          {/* Text */}
+          <motion.p>Hello World, I'm</motion.p>
+          <motion.p className='md:text-5xl text-3xl font-bold'>
+            <span style={{
+              background: ' #00C0FD',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+            }}>IGWE</span> PRECIOUS
+          </motion.p>
+          <motion.p className='mb-4 mt-4 text-white md:text-3xl text-xl md:min-h-8'>
+            And I'm a <span className='font-semibold' style={{
+              background: ' #00C0FD',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+              textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
+            }}>{text}</span><span className='blinking-cursor'>|</span>
+          </motion.p>
+          <motion.p className='text-white text-sm md:text-base'>
+            I build responsive, dynamic applications using modern technologies. Specializing in front-end development, I create intuitive user interfaces, integrate APIs, and optimize performance. From crypto dashboards to secure admin panels, I bring ideas to life through scalable, maintainable solutions.
+          </motion.p>
 
+          {/* Download CV Button */}
+          <button
+            className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
+            style={{
+              background: 'rgb(0, 192, 253)',
+              boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect
+              transition: 'box-shadow 0.3s ease-in-out', // Smooth transition
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 192, 253, 1)')} // Stronger glow on hover
+            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 192, 253, 0.8)')} // Restore glow after hover
+          >
+            Download CV
+          </button>
         </motion.div>
+
+        {/* Image Section */}
         <motion.div 
          initial="hidden"
          whileInView="visible"
-        
          viewport={{ once: true }}
          variants={imageVariants}
-        
-        className='md:w-[50%] w-[100%] items-center flex justify-center  z-10 '>{/* image */}
-            <div
-            className='transition-all duration-1000 cursor-pointer'
+         className='md:w-[32%] w-[80%] items-center flex justify-center z-10'>
+          <div
+            className='transition-all duration-1000 cursor-pointer w-full'
             style={{
-                boxShadow: '0 0 20px 10px rgba(0, 192, 253, 0.8)',
-                animation: 'pulseGlow 2s infinite alternate',
-                background: 'rgba(0, 192, 253, 0.8)',
-                borderRadius: '50%', /* Make sure the border is rounded like the image */
-                padding: '8px', /* This will act as the border width */
-                width: 'fit-content',
-               transform: isHovered ? 'scale(1.05, 1.05)' : 'none'
-              }}
-              onMouseEnter={()=> setIsHovered(true)}
-              onMouseLeave={()=> setIsHovered(false)}
-            >
-
-            <img className='w-96 rounded-full rotate-12  ' src="/assets/images/me.PNG" alt="" />
-            </div>
+              boxShadow: '0 0 20px 10px rgba(0, 192, 253, 0.8)',
+              animation: 'pulseGlow 2s infinite alternate',
+              background: 'rgba(0, 192, 253, 0.8)',
+              borderRadius: '50%', /* Ensure the border is rounded like the image */
+              padding: '8px', /* Border width */
+              width: 'fit-content',
+              transform: isHovered ? 'scale(1.05, 1.05)' : 'none'
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <img className='w-full rounded-full rotate-12' src="/assets/images/me.PNG" alt="" />
+          </div>
         </motion.div>
     </div>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

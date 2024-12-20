@@ -19,7 +19,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    if (scrollPosition > 60) {
+    if (scrollPosition > 140) {
       setStickyNavbar(true);
     } else {
       setStickyNavbar(false);
@@ -126,82 +126,86 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
         </button>
 
         {/* Mobile Menu */}
-        <div
-          style={{ backgroundColor: '#222' }}
-          className={`${
-            menuToggle ? 'translate-x-0 opacity-100' : 'translate-x-full '
-          } fixed top-0 left-0 w-screen h-screen flex flex-col transition-transform duration-300 ease-in-out z-50`}
+        {/* Mobile Menu */}
+<div
+  style={{ backgroundColor: '#222' }}
+  className={`fixed top-0 left-0 w-screen h-screen flex flex-col transition-transform  duration-600 ease-in-out z-50 ${
+    menuToggle ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'
+  }`}
+>
+  <div className='flex justify-between items-center w-full px-4 py-4 border-b border-white'>
+    <p
+      className='font-bold md:text-xl text-2xl'
+      style={{
+        background: ' #00C0FD',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+        textShadow: '0 0 10px rgba(0, 192, 253, 0.8)',
+      }}
+    >
+      &lt;Igwe <span className='text-white'>Precious</span> /&gt;
+    </p>
+    <button onClick={() => setMenuToggle(false)} className='transition-transform duration-300 ease-in-out'>
+      <CloseIcon
+        sx={{
+          fontSize: 35,
+          transition: '0.3s ease-in-out', // Smooth transition
+          '&:hover': {
+            color: 'rgba(0, 192, 253, 0.8)', // Change color on hover
+            textShadow: '0 0 10px rgba(0, 192, 253, 0.8)', // Add glowing effect
+          },
+        }}
+      />
+    </button>
+  </div>
+  <div className='text-2xl'>
+    <div className='flex flex-col gap-4 border-white border-b px-4 py-4'>
+      {navLinks.map((item, index) => (
+        <Link
+          key={index}
+          to={item.routes}
+          style={{
+            color: hoveredIndex === index ? 'rgba(0, 192, 253, 0.8)' : 'white',
+            textShadow: hoveredIndex === index ? '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
+          }}
+          onClick={() => setMenuToggle(false)}
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
         >
-          <div className='flex justify-between items-center w-full px-4 py-4 border-b border-white'>
-            <p
-              className='font-bold md:text-xl text-2xl'
+          {item.linkName}
+        </Link>
+      ))}
+    </div>
+    <div className='w-full mt-8'>
+      <div className='flex gap-4 w-full items-center justify-center'>
+        {socialLinks.map((items, index) => {
+          const IconComponent = icons[items];
+          return (
+            <Link
+              key={index}
               style={{
-                background: ' #00C0FD',
-                WebkitBackgroundClip: 'text',
-                color: 'transparent',
-                textShadow: '0 0 10px rgba(0, 192, 253, 0.8)',
+                color: socialLinksIndex === index ? 'rgba(0, 192, 253, 0.8)' : 'white',
+                textShadow: socialLinksIndex === index ? '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
               }}
+              onMouseEnter={() => setSocialLinksIndex(index)}
+              onMouseLeave={() => setSocialLinksIndex(null)}
             >
-              &lt;Igwe <span className='text-white'>Precious</span> /&gt;
-            </p>
-            <button  onClick={() => setMenuToggle(false)} className='transition-transform duration-300  ease-in-out'>
-              <CloseIcon sx={{
-      fontSize: 35,
-      transition: '0.3s ease-in-out', // Smooth transition
-      '&:hover': {
-        color: 'rgba(0, 192, 253, 0.8)', // Change color on hover
-        textShadow: '0 0 10px rgba(0, 192, 253, 0.8)', // Add glowing effect
-      },
-    }} />
-            </button>
-          </div>
-          <div className='text-2xl'>
-            <div className='flex flex-col gap-4 border-white border-b px-4 py-4'>
-              {navLinks.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.routes}
-                  style={{
-                    color: hoveredIndex === index ? 'rgba(0, 192, 253, 0.8)' : 'white',
-                    textShadow: hoveredIndex === index ? '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
-                  }}
-                  onClick={() => setMenuToggle(false)}
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  {item.linkName}
-                </Link>
-              ))}
-            </div>
-            <div className='w-full mt-8'>
-              <div className='flex gap-4 w-full items-center justify-center'>
-                {socialLinks.map((items, index) => {
-                  const IconComponent = icons[items];
-                  return (
-                    <Link
-                      key={index}
-                      style={{
-                        color: socialLinksIndex === index ? 'rgba(0, 192, 253, 0.8)' : 'white',
-                        textShadow: socialLinksIndex === index ? '0 0 10px rgba(0, 192, 253, 0.8)' : 'none',
-                      }}
-                      onMouseEnter={() => setSocialLinksIndex(index)}
-                      onMouseLeave={() => setSocialLinksIndex(null)}
-                    >
-                      <div>
-                        <IconComponent sx={{ fontSize: 35 }} />
-                      </div>
-                    </Link>
-                  );
-                })}
+              <div>
+                <IconComponent sx={{ fontSize: 35 }} />
               </div>
-            </div>
-          </div>
-          <div className='absolute bottom-0 w-full flex justify-center p-2'>
-            <Typography variant='body2' sx={{ fontSize: '0.75rem', color: 'gray' }}>
-              © 2024 My Portfolio. All Rights Reserved.
-            </Typography>
-          </div>
-        </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+  <div className='absolute bottom-0 w-full flex justify-center p-2'>
+    <Typography variant='body2' sx={{ fontSize: '0.75rem', color: 'gray' }}>
+      © 2024 My Portfolio. All Rights Reserved.
+    </Typography>
+  </div>
+</div>
+
       </nav>
     </div>
   );

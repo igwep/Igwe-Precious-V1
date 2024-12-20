@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import CanvasNest from 'canvas-nest.js';
+import { motion } from 'framer-motion';
 
 const projects = [
   {
@@ -51,22 +52,53 @@ const ParticlesBackground = () => {
     />
   );
 };
+const textVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 1.5, ease: 'easeInOut' }
+  }
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 1.5, ease: 'easeInOut' }
+  },
+  hover: {
+    scale: 1.1,
+    transition: { duration: 0.3, ease: 'easeInOut' }
+  }
+};
 const ProjectsSection = () => {
   return (
-    <section  id="projects" className="py-16 ">
+    <section  id="projects" className="py-16 min-h-screen ">
       <ParticlesBackground />
       <div className="container mx-auto px-4 z-10 relative">
-        <h2  
+        <motion.h2 
+        initial="hidden"
+        whileInView="visible"
+       
+        viewport={{ once: true }}
+        variants={imageVariants} 
         style={{
           background: ' #00C0FD',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
           textShadow: '0 0 4px rgba(0, 192, 253, 0.8)'
         }}
-        className="text-3xl font-bold text-center text-white mb-12" >
+        className="text-4xl py-4 font-bold text-center text-white mb-8" >
           My Projects
-        </h2>
-        <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        </motion.h2>
+        <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={textVariants}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div key={index}
             style={{
@@ -83,7 +115,7 @@ const ProjectsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
