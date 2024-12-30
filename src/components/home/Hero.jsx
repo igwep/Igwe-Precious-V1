@@ -66,7 +66,7 @@ const Hero = () => {
   return (
     <div 
       // Added top padding to prevent the image from overlapping with the navbar
-      className='px-4 py-4 md:px-20 md:py-16 md:h-[70vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10 pt-20'> 
+      className='px-4 py-4 mt-28 md:mt-0 md:px-20 md:py-16 md:h-[80vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10 pt-20'> 
       <ParticlesBackground />
         <motion.div 
          className='md:w-[50%] w-full'

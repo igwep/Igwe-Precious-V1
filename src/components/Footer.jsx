@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Link } from '@mui/material';
 import { Facebook, Twitter, Instagram, LinkedIn } from '@mui/icons-material';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const Footer = () => {
   return (
@@ -16,16 +17,14 @@ const Footer = () => {
     >
       {/* Social Media Links */}
       <Box mb={2}>
-        <Link href="https://facebook.com" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
+        <Link href="https://www.facebook.com/precious.igwe.9828?mibextid=LQQJ4d" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
           <Facebook />
         </Link>
-        <Link href="https://twitter.com" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
-          <Twitter />
+       
+        <Link href="https://github.com/igwep" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
+          <GitHubIcon />
         </Link>
-        <Link href="https://instagram.com" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
-          <Instagram />
-        </Link>
-        <Link href="https://linkedin.com" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
+        <Link href="https://www.linkedin.com/in/precious-igwe-454244317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener" sx={{ mx: 1, color: 'inherit' }}>
           <LinkedIn />
         </Link>
       </Box>
