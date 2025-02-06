@@ -4,22 +4,23 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'A brief description of Project One, highlighting the main features and technologies used.',
-    link: '#',
-    image: 'https://via.placeholder.com/300' // Replace with actual project image
+    title: 'TODOLY',
+    description: 'TODOLY web app is a user-friendly application designed to help individuals efficiently organize, manage, and track their tasks.',
+    link: 'https://todoly.onrender.com',
+    image: 'assets/images/todoly-face.PNG' // Replace with actual project image
   },
   {
-    title: 'Project Two',
-    description: 'A brief description of Project Two, highlighting the main features and technologies used.',
-    link: '#',
-    image: 'https://via.placeholder.com/300' // Replace with actual project image
+    title: 'EshelfAfrica',
+    description: 'EshelfAfrica is an e-commerce platform that connects buyers and sellers of books.',
+    link: 'https://eshelfafrica.onrender.com',
+    image: 'assets/images/eshelf-face.PNG' // Replace with actual project image
   },
+
   {
-    title: 'Project Three',
-    description: 'A brief description of Project Three, highlighting the main features and technologies used.',
-    link: '#',
-    image: 'https://via.placeholder.com/300' // Replace with actual project image
+    title: 'Epiphany',
+    description: 'A responsive website for an individual lawyer, built with React and styled with Tailwind CSS. Features include service details, a professional profile, an interactive contact form, and modern, mobile-friendly design. Technologies: React, Tailwind CSS',
+    link: 'https://eshelfafrica.onrender.com',
+    image: 'assets/images/epiphany-face.PNG' // Replace with actual project image
   },
 ];
 

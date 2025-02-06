@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        customPurple: '#42446E',  // Add your color here
+        customPurple: '#42446E', 
+        mainColor: '#00C0FD' // Add your color here
       },
     },
   },

@@ -20,7 +20,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    setStickyNavbar(scrollPosition > 120);
+    setStickyNavbar(scrollPosition > 150);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
