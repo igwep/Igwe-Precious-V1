@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ParticlesBackground from '../ParticlesBackground';
 import { motion } from 'framer-motion';
+import resume from '../../../public/assets/resume.pdf';
 
 const Hero = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -97,7 +98,7 @@ const Hero = () => {
           </motion.p>
 
           {/* Download CV Button */}
-          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href={resume} download="Resume - Igwe Precious">
   <button
     className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
     style={{

@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center py-12 px-8 w-full ">
+    <div className="min-h-screen flex flex-col items-center justify-start py-12  w-full ">
       <ParticlesBackground />
       
       <motion.div 
