@@ -79,11 +79,11 @@ const Contact = () => {
           <div className="flex flex-col items-start text-white space-y-6 mb-10 text-lg">
             <div className="flex items-center justify-center space-x-4">
               <Email style={{ color: '#00C0FD', fontSize: 30 }} />
-              <span className="md:text-xl">your-email@example.com</span>
+              <span className="md:text-xl">Igwep5537@gmail.com</span>
             </div>
             <div className="flex items-center justify-center space-x-4">
               <Phone style={{ color: '#00C0FD', fontSize: 30 }} />
-              <span className="md:text-xl text-base">+123 456 7890</span>
+              <span className="md:text-xl text-base">07065155757</span>
             </div>
           </div>
 
@@ -91,7 +91,7 @@ const Contact = () => {
 
           {/* Social Media Links */}
           <div className="flex justify-center space-x-10 mt-8">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/precious.igwe.9828?mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
               <Facebook style={{ color: '#00C0FD', fontSize: 50 }} />
             </a>
             <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
@@ -100,7 +100,7 @@ const Contact = () => {
             <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
               <Instagram style={{ color: '#00C0FD', fontSize: 50 }} />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/precious-igwe-454244317?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" rel="noopener noreferrer">
               <LinkedIn style={{ color: '#00C0FD', fontSize: 50 }} />
             </a>
           </div>

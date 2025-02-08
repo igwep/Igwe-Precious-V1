@@ -97,18 +97,21 @@ const Hero = () => {
           </motion.p>
 
           {/* Download CV Button */}
-          <button
-            className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
-            style={{
-              background: 'rgb(0, 192, 253)',
-              boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect
-              transition: 'box-shadow 0.3s ease-in-out', // Smooth transition
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 192, 253, 1)')} // Stronger glow on hover
-            onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 192, 253, 0.8)')} // Restore glow after hover
-          >
-            Download CV
-          </button>
+          <a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer">
+  <button
+    className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
+    style={{
+      background: 'rgb(0, 192, 253)',
+      boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)', // Glow effect
+      transition: 'box-shadow 0.3s ease-in-out', // Smooth transition
+    }}
+    onMouseEnter={(e) => (e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 192, 253, 1)')} // Stronger glow on hover
+    onMouseLeave={(e) => (e.currentTarget.style.boxShadow = '0 0 15px rgba(0, 192, 253, 0.8)')} // Restore glow after hover
+  >
+    Download Resume
+  </button>
+</a>
+
         </motion.div>
 
         {/* Image Section */}
