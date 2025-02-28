@@ -93,7 +93,7 @@ const Footer = () => {
 
       {/* Copyright */}
       <Typography variant="body2" sx={{ fontSize: '0.75rem', color: 'gray' }}>
-        © 2024 IGWE PRECIOUS. All Rights Reserved.
+        © 2025 IGWE PRECIOUS. All Rights Reserved.
       </Typography>
     </Box>
   );
