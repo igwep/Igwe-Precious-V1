@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -12,6 +13,10 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
   const [stickyNavbar, setStickyNavbar] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [socialLinksIndex, setSocialLinksIndex] = useState(null);
+
+  const location = useLocation();
+
+  console.log('Current location:', location.pathname);
 
   const handleScroll = useCallback(() => {
     const position = window.pageYOffset || document.documentElement.scrollTop;
@@ -59,7 +64,6 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
     LinkedInIcon: LinkedInIcon,
   };
 
-  // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (menuToggle) {
       document.body.style.overflow = 'hidden';
@@ -108,11 +112,11 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
                 className="cursor-pointer"
                 style={{
                   color:
-                    hoveredIndex === index
+                    hoveredIndex === index || location.pathname === item.routes
                       ? 'rgba(0, 192, 253, 0.8)'
                       : 'white',
                   textShadow:
-                    hoveredIndex === index
+                    hoveredIndex === index || location.pathname === item.routes
                       ? '0 0 10px rgba(0, 192, 253, 0.8)'
                       : 'none',
                 }}
@@ -135,11 +139,11 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
                   rel="noopener noreferrer"
                   style={{
                     color:
-                      socialLinksIndex === index
+                      socialLinksIndex === index 
                         ? 'rgba(0, 192, 253, 0.8)'
                         : 'white',
                     textShadow:
-                      socialLinksIndex === index
+                      socialLinksIndex === index 
                         ? '0 0 10px rgba(0, 192, 253, 0.8)'
                         : 'none',
                   }}
@@ -165,10 +169,10 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
           <MenuIcon
             sx={{
               fontSize: 24,
-              transition: '0.3s ease-in-out', // Smooth transition
+              transition: '0.3s ease-in-out',
               '&:hover': {
-                color: 'rgba(0, 192, 253, 0.8)', // Change color on hover
-                textShadow: '0 0 10px rgba(0, 192, 253, 0.8)', // Add glowing effect
+                color: 'rgba(0, 192, 253, 0.8)',
+                textShadow: '0 0 10px rgba(0, 192, 253, 0.8)',
               },
             }}
           />
@@ -177,7 +181,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
         {/* Mobile Menu */}
         <div
           style={{ backgroundColor: '#222' }}
-          className={`fixed top-0 left-0 w-screen h-screen flex flex-col transition-transform duration-600 ease-in-out z-50 ${
+          className={`fixed top-0 left-0 w-screen h-screen flex flex-col transition-all duration-500 ease-in-out z-50 ${
             menuToggle
               ? 'translate-x-0 opacity-100 pointer-events-auto'
               : 'translate-x-full opacity-0 pointer-events-none'
@@ -203,11 +207,10 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
               <CloseIcon
                 sx={{
                   fontSize: 35,
-                  transition: '0.3s ease-in-out', // Smooth transition
+                  transition: '0.3s ease-in-out',
                   '&:hover': {
-                    color: 'rgba(0, 192, 253, 0.8)', // Change color on hover
-                    textShadow:
-                      '0 0 10px rgba(0, 192, 253, 0.8)', // Add glowing effect
+                    color: 'rgba(0, 192, 253, 0.8)',
+                    textShadow: '0 0 10px rgba(0, 192, 253, 0.8)',
                   },
                 }}
               />
@@ -222,11 +225,11 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
                     className="block"
                     style={{
                       color:
-                        hoveredIndex === index
+                        hoveredIndex === index || location.pathname === item.routes
                           ? 'rgba(0, 192, 253, 0.8)'
                           : 'white',
                       textShadow:
-                        hoveredIndex === index
+                        hoveredIndex === index || location.pathname === item.routes
                           ? '0 0 10px rgba(0, 192, 253, 0.8)'
                           : 'none',
                     }}

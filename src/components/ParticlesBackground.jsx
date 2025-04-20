@@ -19,7 +19,7 @@ const ParticlesBackground = () => {
     <div  className='md:h-[100%] h-[90vh]'
       id="canvasContainer" 
       style={{ 
-        position: 'absolute', 
+        position: 'fixed', 
         top: 0, 
         left: 0, 
         width: '100%', 
