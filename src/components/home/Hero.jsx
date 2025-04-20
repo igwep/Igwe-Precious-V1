@@ -70,21 +70,8 @@ const Hero = () => {
     <div className='px-4 py-4 mt-52 md:mt-0 md:px-20 md:py-16 md:h-[80vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10  relative'>
  
   
-  {/* Floating particles overlay */}
-  <div className="absolute inset-0 pointer-events-none">
-    {[...Array(12)].map((_, i) => (
-      <div 
-        key={i}
-        className="absolute w-1 h-1 bg-[#00C0FD] rounded-full opacity-20 animate-float"
-        style={{
-          top: `${Math.random() * 100}%`,
-          left: `${Math.random() * 100}%`,
-          animationDelay: `${i * 0.5}s`,
-          animationDuration: `${5 + Math.random() * 10}s`
-        }}
-      />
-    ))}
-  </div>
+  
+ 
 
   {/* Text Section with Glass Effect */}
   <motion.div 

@@ -75,7 +75,7 @@ const About = () => {
       ))}
     </div>
   
-    <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16 max-w-7xl mx-auto relative z-10">
+    <div className="flex flex-col md:flex-row items-start justify-center gap-8 md:gap-16  relative z-10">
       {/* Image Section */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
