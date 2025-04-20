@@ -133,7 +133,7 @@ const Contact = () => {
           {[
             { icon: <Facebook />, link: 'https://www.facebook.com/...' },
             { icon: <Twitter />, link: 'https://twitter.com' },
-            { icon: <Instagram />, link: 'https://instagram.com' },
+            
             { icon: <LinkedIn />, link: 'https://linkedin.com/...' }
           ].map((social, index) => (
             <motion.a
