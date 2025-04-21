@@ -50,7 +50,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start py-12 w-full relative overflow-hidden">
+    <div className="min-h-screen font-mono flex flex-col items-center justify-start py-12 w-full relative overflow-hidden">
     <ParticlesBackground />
     
     <motion.div 
@@ -129,7 +129,7 @@ const Contact = () => {
           You can reach me also on these platforms:
         </motion.p>
 
-        <div className="flex justify-center space-x-6 md:space-x-10 mt-8 flex-wrap">
+        <div className="flex  justify-center space-x-6 md:space-x-10 mt-8 flex-wrap">
           {[
             { icon: <Facebook />, link: 'https://www.facebook.com/...' },
             { icon: <Twitter />, link: 'https://twitter.com' },

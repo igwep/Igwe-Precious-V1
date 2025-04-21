@@ -84,7 +84,7 @@ const imageVariants = {
 };
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-16 min-h-screen relative md:px-16 ">
+    <section id="projects" className="py-16 font-mono min-h-screen relative md:px-16 ">
       <ParticlesBackground />
       <div className="container mx-auto px-4 z-10 relative">
         <motion.h2 

@@ -96,7 +96,7 @@ const Hero = () => {
       
       {/* Position with your custom blue styling */}
       <motion.p className='mb-4 mt-4 text-white md:text-3xl text-xl md:min-h-8'>
-        And I&apos;m a <span className='font-semibold' style={{
+        And I&apos;m a <span className='font-semibold font-mono' style={{
           background: '#00C0FD',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
@@ -104,14 +104,14 @@ const Hero = () => {
         }}>{text}</span><span className='blinking-cursor'>|</span>
       </motion.p>
       
-      <motion.p className='text-white text-sm md:text-base mb-8'>
+      <motion.p className='text-white text-sm md:text-base mb-4 font-mono'>
       I build responsive, dynamic applications using modern technologies. Specializing in front-end development, I create intuitive user interfaces, integrate APIs, and optimize performance. From crypto dashboards to secure admin panels, I bring ideas to life through scalable, maintainable solutions.
       </motion.p>
 
       {/* Download Button (unchanged) */}
       <a href={resume} download="Resume - Igwe Precious">
         <button
-          className="px-4 py-2 rounded-3xl text-black font-bold relative mt-4 z-10"
+          className="px-4 py-2 rounded-3xl font-mono text-black font-bold relative  z-10"
           style={{
             background: 'rgb(0, 192, 253)',
             boxShadow: '0 0 15px rgba(0, 192, 253, 0.8)',

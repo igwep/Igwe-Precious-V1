@@ -56,7 +56,9 @@ const ParticlesBackground = () => {
 
 const TechStack = () => {
   return (
-    <div style={{ 
+    <div
+    className='font-mono'
+    style={{ 
       backgroundColor: 'rgba(0,0,0,0.3)', 
       color: 'white', 
       padding: '4rem 0',

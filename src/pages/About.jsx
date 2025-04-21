@@ -56,7 +56,7 @@ const imageVariants = {
 
 const About = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-8 text-white overflow-hidden">
+    <section className="relative font-mono min-h-screen flex items-center justify-center p-8 text-white overflow-hidden">
     <ParticlesBackground />
     
     {/* Floating particles overlay */}

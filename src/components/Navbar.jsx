@@ -80,7 +80,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
     <div
       className={`${
         stickyNavbar
-          ? 'fixed top-0 left-0 w-full bg-transparent backdrop-blur-sm h-auto overflow-hidden'
+          ? 'fixed top-0  left-0 w-full bg-transparent backdrop-blur-sm h-auto overflow-hidden'
           : 'w-full'
       } ${
         menuToggle && stickyNavbar
@@ -88,7 +88,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
           : 'w-full'
       }`}
     >
-      <nav className="flex items-center justify-between px-4 py-4 md:px-16 md:py-4 xl:px-20 xl:py-8 h-auto">
+      <nav className="flex items-center font-mono justify-between px-4 py-4 md:px-16 md:py-4 xl:px-20 xl:py-8 h-auto">
         <Link to="/">
           <p
             className="font-bold md:text-xl text-2xl"
