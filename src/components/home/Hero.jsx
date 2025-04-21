@@ -95,7 +95,7 @@ const Hero = () => {
       </motion.p>
       
       {/* Position with your custom blue styling */}
-      <motion.p className='mb-4 mt-4 text-white md:text-3xl text-xl md:min-h-8'>
+      <motion.p className='mb-4 mt-4 text-white md:text-3xl text-xl text-nowrap md:min-h-8'>
         And I&apos;m a <span className='font-semibold font-mono' style={{
           background: '#00C0FD',
           WebkitBackgroundClip: 'text',
