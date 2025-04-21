@@ -67,7 +67,7 @@ const Hero = () => {
   return (
     <>
     <ParticlesBackground />
-    <div className='px-4 py-4 mt-52 md:mt-0 md:px-20 md:py-16 md:h-[80vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10  relative'>
+    <div className='px-4 py-4 mt-36 md:mt-0 md:px-20 md:py-16 md:h-[80vh] h-[80vh] items-center md:flex-row flex-col-reverse gap-8 md:gap-0 flex justify-between z-10  relative'>
  
   
   
