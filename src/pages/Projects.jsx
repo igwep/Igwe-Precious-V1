@@ -10,6 +10,12 @@ const projects = [
     link: 'https://blogged-48qg.vercel.app',
     image: 'assets/images/blogspot.png'
   },
+   {
+    title: 'Shop.co',
+    description: 'Shop.co is a modern e-commerce platform built with Next.js, styled with Tailwind CSS, and powered by Firebase for auth and data. It features Google sign-in, product search, and cart management.',
+    link: 'https://shop-co-three-blue.vercel.app/',
+    image: 'assets/images/shop.co.png' // Replace with actual project image
+  },
   {
     title: 'TODOLY',
     description: 'TODOLY web app is a user-friendly application designed to help individuals efficiently organize, manage, and track their tasks.',
@@ -26,9 +32,10 @@ const projects = [
   {
     title: 'Epiphany',
     description: 'A responsive website for an individual lawyer, built with React and styled with Tailwind CSS.',
-    link: 'https://eshelfafrica.onrender.com',
+    link: 'hhttps://epiphany-legal-practitioners4.onrender.com',
     image: 'assets/images/epiphany-face.PNG' // Replace with actual project image
   },
+   
   
 ];
 
